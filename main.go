@@ -2,16 +2,13 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
-	"github.com/csornyei/simple-go-web-service/models"
+	"github.com/csornyei/simple-go-web-service/controllers"
 )
 
 func main() {
-	u := models.User{
-		ID:        2,
-		FirstName: "Matthew",
-		LastName:  "Cerni",
-	}
-
-	fmt.Println(u)
+	controllers.RegisterControllers()
+	fmt.Println("Starting server on port 3000...")
+	http.ListenAndServe(":3000", nil)
 }
